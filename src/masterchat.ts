@@ -493,6 +493,7 @@ export class Masterchat extends EventEmitter {
 
         // {} => Live stream ended
         return {
+          rawActions: [],
           actions: [],
           continuation: undefined,
           error: null,
@@ -506,6 +507,7 @@ export class Masterchat extends EventEmitter {
       // this means no chat available between the time window
       if (!rawActions) {
         return {
+          rawActions: [],
           actions: [],
           continuation: newContinuation,
           error: null,
@@ -522,6 +524,7 @@ export class Masterchat extends EventEmitter {
         .filter((a): a is Action => a !== undefined);
 
       const chat: ChatResponse = {
+        rawActions,
         actions,
         continuation: newContinuation,
         error: null,

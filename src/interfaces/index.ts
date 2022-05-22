@@ -1,5 +1,6 @@
 import { Action } from "./actions";
 import { TimedContinuation } from "./misc";
+import { YTAction } from "./yt/chat";
 
 export * from "./actions";
 export * from "./context";
@@ -16,6 +17,7 @@ export interface Metadata {
 }
 
 export interface ChatResponse {
+  rawActions: YTAction[];
   actions: Action[];
   continuation: TimedContinuation | undefined;
   error: null;
